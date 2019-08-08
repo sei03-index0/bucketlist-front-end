@@ -5,11 +5,13 @@
 
 // use require without a reference to ensure a file is bundled
 // require('./example')
-const events = require('././bucketlist/events.js')
+const listEvents = require('./bucketlist/events.js')
+const authEvents = require('./auth/events.js')
 
 $(() => {
-  $('#sign-up').on('submit', events.onSignUp)
-  $('#sign-in').on('submit', events.onSignIn)
-  $('#sign-out').on('click', events.onSignOut)
-  $('#change-password').on('submit', events.onChangePassword)
+  $('#sign-up').on('submit', authEvents.onSignUp)
+  $('#sign-in').on('submit', authEvents.onSignIn)
+  $('#sign-out').on('click', authEvents.onSignOut)
+  $('#change-password').on('submit', authEvents.onChangePassword)
+  listEvents.addHandlers()
 })
