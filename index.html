@@ -11,7 +11,30 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
+
     <body>
-      <h1>Browser Template</h1>
+    <nav>
+
+      <form id="sign-in" class="hide">
+        <h2> Sign in </h2>
+        <input type="email" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <button class="button">Sign in!</button>
+      </form>
+
+
+      <form id="sign-up" class="hide">
+        <h2> Sign up </h2>
+        <input type="email" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <button class="button">Sign up!</button>
+      </form>
+
+    </nav>
+    <main>
+
+
+    </main>
     </body>
 </html>
