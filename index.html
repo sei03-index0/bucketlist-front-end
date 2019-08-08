@@ -13,28 +13,45 @@
     </head>
 
     <body>
-    <nav>
+      <h1>Browser Template</h1>
 
-      <form id="sign-in" class="hide">
-        <h2> Sign in </h2>
-        <input type="email" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <button class="button">Sign in!</button>
+      <nav>
+
+        <form id="sign-in" class="hide">
+          <h2> Sign in </h2>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <button class="button">Sign in!</button>
+        </form>
+
+
+        <form id="sign-up" class="hide">
+          <h2> Sign up </h2>
+          <input type="email" name="credentials[email]" placeholder="Email">
+          <input type="password" name="credentials[password]" placeholder="Password">
+          <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+          <button class="button">Sign up!</button>
+        </form>
+
+
+      <section>
+        <ul>
+          <li>
+        </ul>
+      </section>
+
+      <form id="change-password" class="hide">
+          <h2>Change Password</h2>
+          <input type="password" name="passwords[old]" placeholder="Old Password">
+          <input type="password" name="passwords[new]" placeholder="New Password">
+          <button class="btn-primary">Change Password</button>
       </form>
 
-
-      <form id="sign-up" class="hide">
-        <h2> Sign up </h2>
-        <input type="email" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-        <button class="button">Sign up!</button>
+      <form id="sign-out" class="hide">
+          <button class="btn-primary">Sign Out</button>
       </form>
 
     </nav>
-    <main>
 
-
-    </main>
     </body>
 </html>
