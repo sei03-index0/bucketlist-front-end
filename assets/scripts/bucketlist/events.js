@@ -13,9 +13,9 @@ const onAddListItem = event => {
 
 const onDeleteListItem = (event) => {
   event.preventDefault()
-  const ListItemId = $(event.target).closest('section').data('id')
-  api.deleteListItem(ListItemId)
-    .then(() => onGetListItems(event))
+  const listItemId = $(event.target).closest('section').data('id')
+  api.deleteListItem(listItemId)
+    .then(() => onIndexListItems(event))
     .catch(ui.onDestroyFailure)
 }
 
@@ -24,12 +24,18 @@ const onUpdateListItem = (event) => {
   const id = $(event.target).closest('section').data('id')
   const formData = getFormFields(event.target)
   api.updateListItem(formData, id)
-  api.getListItems()
+  api.indexListItems()
     .then(ui.onUpdateSuccess)
 }
 
+const onIndexListItems = (event) => {
+  event.preventDefault()
+  api.indexListItems()
+    .then(ui.onIndexSuccess)
+    .catch(ui.onIndexFailure)
+}
+
 const addHandlers = () => {
-  $('#getListItemsButton').on('click', onGetListItems)
   $('.content').on('click', '.delete-list-item', onDeleteListItem)
   $('.content').on('submit', '.update-list-item', onUpdateListItem)
 }
@@ -38,6 +44,6 @@ module.exports = {
   onAddListItem,
   onDeleteListItem,
   onUpdateListItem,
-  onGetListItems,
+  onIndexListItems,
   addHandlers
 }
