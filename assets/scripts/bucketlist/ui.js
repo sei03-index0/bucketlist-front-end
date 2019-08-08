@@ -1,19 +1,6 @@
 'use strict'
 
-const onCreateSuccess = function (data) {
-  $('#message').text('List successfully created')
-  $('#message').removeClass()
-  $('#message').addClass('success')
-  console.log('onCreateSuccess ran. Data is :', data)
-}
-
-const onCreateFailure = function (error) {
-  $('#message').text('Error on creating list')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
-  console.error('onCreateFailure ran. Error is :', error)
-}
-
+// CRUD Success and Failure Messages
 const onIndexSuccess = function (data) {
   $('#message').text('All lists successfully received')
   $('#message').removeClass('failure')
@@ -22,28 +9,28 @@ const onIndexSuccess = function (data) {
 }
 
 const onIndexFailure = function (error) {
-  $('#message').text('Error on getting list')
+  $('#message').text('Error getting lists')
   $('#message').removeClass('success')
   $('#message').addClass('failure')
   console.error('onIndexFailure ran. Error is :', error)
 }
 
-const onShowSuccess = function (data) {
-  $('#message').text('One list successfully received')
+const onCreateSuccess = function (data) {
+  $('#message').text('List Successfully Created!')
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('onCreateSuccess ran. Data is :', data)
 }
 
-const onShowFailure = function (error) {
-  $('#message').text('Error on getting list')
+const onCreateFailure = function (error) {
+  $('#message').text('Error Creating List, Try Again')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.error('onShowFailure ran. Error is :', error)
 }
 
 const onDestroySuccess = function () {
-  $('#message').text('List successfully deleted')
+  $('#message').text('List Successfully deleted')
   $('#message').removeClass()
   $('#message').addClass('success')
   $('.content').empty()
@@ -51,21 +38,21 @@ const onDestroySuccess = function () {
 }
 
 const onDestroyFailure = function (error) {
-  $('#message').text('Error on deleting list')
+  $('#message').text('Error Deleting List, Try Again')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.error('onDestroyFailure ran. Error is :', error)
 }
 
 const onUpdateSuccess = function () {
-  $('#message').text('List successfully updated')
+  $('#message').text('Updated List Successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
   console.log('list successfully updated')
 }
 
 const onUpdateFailure = function (error) {
-  $('#message').text('Error on updating list')
+  $('#message').text('Error Updating List, Try Again')
   $('#message').removeClass()
   $('#message').addClass('failure')
   console.error('onUpdateFailure ran. Error is :', error)
@@ -76,8 +63,6 @@ module.exports = {
   onCreateFailure,
   onIndexSuccess,
   onIndexFailure,
-  onShowSuccess,
-  onShowFailure,
   onDestroySuccess,
   onDestroyFailure,
   onUpdateSuccess,
