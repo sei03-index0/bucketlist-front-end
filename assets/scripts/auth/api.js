@@ -1,48 +1,48 @@
 'use strict'
 
-const getFormFields = require('./../../get-form-fields')
-const api = require('.api')
-const ui = require('./ui')
+const config = require('./../config')
+const store = require('./../store')
 
-const onSignUp = event => {
-  const form = event.target //
-  event.preventDefault()
-  const formData = getFormFields(form)
-  api.signUp(formData)
-    .then(ui.onSignUpSuccess)
-    .catch(ui.onSignUpFailure)
+const signUp = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-up',
+    method: 'POST',
+    data: data
+  })
 }
 
-const onSignIn = event => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.signIn(formData)
-    .then(ui.onSignInSuccess)
-    .catch(ui.onSignInFailure)
+const signIn = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data: data
+  })
 }
 
-const onSignOut = event => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.signOut(formData)
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutFailure)
+const changePassword = data => {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
 }
 
-const onChangePassword = event => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.changePassword(formData)
-    .then(ui.onChangePasswordSuccess)
-    .catch(ui.onChangePasswordFailure)
+const signOut = () => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
 }
 
 module.exports = {
-  onSignIn,
-  onSignOut,
-  onChangePassword,
-  onSignUp
+  signUp,
+  signIn,
+  changePassword,
+  signOut
 }
