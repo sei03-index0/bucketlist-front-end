@@ -16,6 +16,7 @@ const onIndexFailure = function (error) {
 }
 
 const onCreateSuccess = function (data) {
+  $('form').trigger('reset')
   $('#message').text('List Successfully Created!')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -23,6 +24,7 @@ const onCreateSuccess = function (data) {
 }
 
 const onCreateFailure = function (error) {
+  $('form').trigger('reset')
   $('#message').text('Error Creating List, Try Again')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -45,6 +47,7 @@ const onDestroyFailure = function (error) {
 }
 
 const onUpdateSuccess = function () {
+  $('form').trigger('reset')
   $('#message').text('Updated List Successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
@@ -52,6 +55,7 @@ const onUpdateSuccess = function () {
 }
 
 const onUpdateFailure = function (error) {
+  $('form').trigger('reset')
   $('#message').text('Error Updating List, Try Again')
   $('#message').removeClass()
   $('#message').addClass('failure')
