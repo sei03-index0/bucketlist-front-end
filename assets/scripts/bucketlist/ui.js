@@ -84,6 +84,6 @@ module.exports = {
   onIndexFailure,
   onDeleteSuccess,
   onDeleteFailure,
-  onUpdateSuccess,
-  onUpdateFailure
+  updateListSuccess,
+  updateListFailure
 }
