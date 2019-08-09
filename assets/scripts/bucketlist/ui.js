@@ -77,6 +77,10 @@ const updateListFailure = function (error) {
   console.error('onUpdateFailure ran. Error is :', error)
 }
 
+const discardChangesSuccess = () => {
+  $('form').trigger('reset')
+}
+
 module.exports = {
   onCreateSuccess,
   onCreateFailure,
@@ -85,5 +89,6 @@ module.exports = {
   onDeleteSuccess,
   onDeleteFailure,
   updateListSuccess,
-  updateListFailure
+  updateListFailure,
+  discardChangesSuccess
 }
