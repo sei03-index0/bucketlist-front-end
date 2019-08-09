@@ -17,8 +17,8 @@
       <div class="modal-body">
         <div class="modal-body">
           <form class="create-list-item">
-            <input type="text" name="listItem[title]" placeholder="title"/>
-            <textarea type="text" name="listItem[description]" placeholder="description">{{listItem.description}}</textarea>
+            <input class="form-control" type="text" name="listItem[title]" placeholder="title"/>
+            <textarea class="form-control" type="text" name="listItem[description]" placeholder="description">{{listItem.description}}</textarea>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
               <button type="submit" data-id="{{listItem._id}}" class="btn btn-info create-list-item">Create</button>
           </form>
