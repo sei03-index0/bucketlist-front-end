@@ -43,9 +43,17 @@ const destroyList = (listId) => {
 
 const updateList = (data) => {
   return $.ajax({
-    url: config.apiUrl + '/list-items/' + store.list.id,
+    url: config.apiUrl + '/list-items/' + store.listId,
     method: 'PATCH',
-    data: data
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      listItem: {
+        title: data.listItem.title,
+        description: data.listItem.description
+      }
+    }
   })
 }
 

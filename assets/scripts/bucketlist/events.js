@@ -1,6 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
 const onAddListItem = event => {
   event.preventDefault()
@@ -21,15 +22,19 @@ const onDeleteListItem = (event) => {
 
 const onUpdateListItem = (event) => {
   event.preventDefault()
-  const id = $(event.target).closest('section').data('id')
-  const formData = getFormFields(event.target)
-  api.updateListItem(formData, id)
-  api.indexListItems()
-    .then(ui.onUpdateSuccess)
+  store.listId = $(event.target).data('id')
+  store.currModalId = `list-item-${store.listId}`
+  const form = event.target
+  const formData = getFormFields(form)
+  api.updateList(formData)
+    .then(() => {
+      ui.updateListSuccess()
+      onIndexListItems()
+    })
+    .catch(ui.updateListFailure)
 }
 
-const onIndexListItems = (event) => {
-  event.preventDefault()
+const onIndexListItems = () => {
   api.indexLists()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
