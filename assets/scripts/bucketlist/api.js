@@ -4,6 +4,7 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const indexLists = () => {
+  console.log('api index list started')
   return $.ajax({
     url: config.apiUrl + '/list-items',
     method: 'GET',

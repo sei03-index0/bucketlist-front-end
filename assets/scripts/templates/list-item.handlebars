@@ -1,39 +1,41 @@
 {{#each listItems as |listItem|}}
-  <section data-id="{{listItem.id}}">
+  {{log listItem}}
+  <section data-id="{{listItem._id}}">
+    <h5>{{listItem.title}}</p>
+    <p>{{listItem.description}}</p>
 
 
 
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
-  </button>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#list-item-{{listItem._id}}">
+      Update
+    </button>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit list</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form class="update-list-item">
-            <input type="text" name="listItem[title]" placeholder="title"/>
-            <input type="text" name="listItem[description]" placeholder="description"/>
-            <input type="text" name="ListItem[completed]" placeholder="cooking_time"/>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="submit" data-id="{{listItem.id}}" class="btn btn-info update-list-item">update</button>
-            </div>
-          </form>
+    <!-- Modal -->
+    <div class="modal fade" id="list-item-{{listItem._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit list</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="update-list-item">
+              <input type="text" name="listItem[title]" placeholder="title"/>
+              <textarea type="text" name="listItem[description]" placeholder="description">{{listItem.description}}</textarea>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" data-id="{{listItem._id}}" class="btn btn-info update-list-item">update</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-<button id="delete-list-item" type="click" class="btn btn-danger delete-list-item">Remove</button>
+  <button id="delete-list-item" type="click" class="btn btn-danger delete-list-item">Remove</button>
 
 </section>
 {{/each}}
