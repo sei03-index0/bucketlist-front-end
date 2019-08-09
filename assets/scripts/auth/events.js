@@ -1,6 +1,8 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const listApi = require('./../bucketlist/api')
+const listUi = require('./../bucketlist/ui')
 
 const onSignUp = event => {
   const form = event.target
@@ -17,6 +19,11 @@ const onSignIn = event => {
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(ui.onSignInSuccess)
+    .then(() => {
+      listApi.indexLists()
+        .then(listUi.onIndexSuccess)
+        .catch(listUi.onIndexFailure)
+    })
     .catch(ui.onSignInFailure)
 }
 

@@ -2,67 +2,74 @@
 
 const store = require('./../store')
 
+const hideMessaging = function () {
+  setTimeout(function () {
+    $('#message').html('')
+    $('#message').hide()
+  }, 3000)
+}
 // Auth Success and Failure Messages
 const onSignUpSuccess = (data) => {
+  $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Successfully Signed Up!')
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
+  hideMessaging()
   console.log('Sign up success')
 }
 
 const onSignUpFailure = (error) => {
+  $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Signing Up, Try Again')
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
+  hideMessaging()
   console.log('Sign up failed', error)
 }
 
 const onSignInSuccess = (data) => {
+  $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
   $('#message').text('Successfully Signed In!')
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
+  hideMessaging()
   console.log('Sign in success')
 }
 
 const onSignInFailure = (error) => {
+  $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Sign In NOT Successful')
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
+  hideMessaging()
   console.error('Sign in failed', error)
 }
 
 const onChangePasswordSuccess = (data) => {
+  $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Changed Password Successfully')
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
+  hideMessaging()
   console.log('Change password success')
 }
 
 const onChangePasswordFailure = (error) => {
+  $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Changing Passwords, Try Again')
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
+  hideMessaging()
   console.error('Change password failed', error)
 }
 
 const onSignOutSuccess = (data) => {
+  $('#message').show()
+  $('.content').html('')
   $('#message').text('Signed Out Successfully!')
-  $('#message').removeClass('failure')
-  $('#message').addClass('success')
+  hideMessaging()
   console.log('Sign out success')
 }
 
 const onSignOutFailure = (error) => {
+  $('#message').show()
   $('#message').text('Error Signing Out')
-  $('#message').removeClass('success')
-  $('#message').addClass('failure')
+  hideMessaging()
   console.error('Sign out failed', error)
 }
 
