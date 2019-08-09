@@ -26,9 +26,10 @@ const onSignUpFailure = (error) => {
 }
 
 const onSignInSuccess = (data) => {
-  $('.sign-up').hide()
-  $('.sign-in').hide()
+  // $('.sign-up').hide()
+  $('.landing').hide()
   $('#sign-out').show()
+  $('.dropdown-content').hide()
   $('#message').show()
   $('#hide-password').show()
   $('form').trigger('reset')
@@ -68,8 +69,11 @@ const onChangePasswordFailure = (error) => {
 const onSignOutSuccess = (data) => {
   $('.sign-up').show()
   $('.sign-in').show()
+  $('.landing').show()
+  // $('.dropdown-content').show()
   $('#sign-out').hide()
   $('#message').show()
+  $('#hide-password').hide()
   $('.content').html('')
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
