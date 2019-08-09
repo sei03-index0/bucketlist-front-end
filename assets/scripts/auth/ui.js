@@ -30,6 +30,7 @@ const onSignInSuccess = (data) => {
   $('.sign-in').hide()
   $('#sign-out').show()
   $('#message').show()
+  $('#hide-password').show()
   $('form').trigger('reset')
   store.user = data.user
   $('#message').text('Successfully Signed In!')
@@ -47,6 +48,9 @@ const onSignInFailure = (error) => {
 
 const onChangePasswordSuccess = (data) => {
   $('#message').show()
+  $('#change-password-modal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   $('form').trigger('reset')
   $('#message').text('Changed Password Successfully')
   hideMessaging()
