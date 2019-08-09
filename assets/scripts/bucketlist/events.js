@@ -20,7 +20,7 @@ const onDeleteListItem = (event) => {
       ui.onDeleteSuccess()
       onIndexListItems()
     })
-    .catch(ui.onDeleteFailure())
+    .catch(ui.onDeleteFailure)
 }
 
 const onUpdateListItem = (event) => {
