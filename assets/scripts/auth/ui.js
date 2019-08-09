@@ -26,6 +26,9 @@ const onSignUpFailure = (error) => {
 }
 
 const onSignInSuccess = (data) => {
+  $('.sign-up').hide()
+  $('.sign-in').hide()
+  $('#sign-out').show()
   $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
@@ -59,6 +62,9 @@ const onChangePasswordFailure = (error) => {
 }
 
 const onSignOutSuccess = (data) => {
+  $('.sign-up').show()
+  $('.sign-in').show()
+  $('#sign-out').hide()
   $('#message').show()
   $('.content').html('')
   $('#message').text('Signed Out Successfully!')
