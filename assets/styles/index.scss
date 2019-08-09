@@ -1,1 +1,41 @@
 @import '~bootstrap/scss/bootstrap';
+
+.container {
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  display: flex;
+  margin-top: 4%
+}
+
+.item {
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  display: flex;
+  margin: 0 10%;
+  border: 2px solid #ff6600;
+  text-align: center;
+}
+
+.top {
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
+
+.list-title {
+  font-size: 30px;
+  margin: auto;
+}
+
+#message {
+  font-size: 20px;
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+}
