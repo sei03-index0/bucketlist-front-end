@@ -24,6 +24,9 @@ const onIndexFailure = function (error) {
 }
 
 const onCreateSuccess = function (data) {
+  $('#create').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('List Successfully Created!')
@@ -36,7 +39,7 @@ const onCreateFailure = function (error) {
   $('form').trigger('reset')
   $('#message').text('Error Creating List, Try Again')
   hideMessaging()
-  console.error('onShowFailure ran. Error is :', error)
+  console.error('Did not run. Error is :', error)
 }
 
 const onDestroySuccess = function () {
