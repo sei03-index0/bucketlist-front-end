@@ -37,10 +37,6 @@ const onUpdateListItem = (event) => {
     .catch(ui.updateListFailure)
 }
 
-const onDiscardChanges = event => {
-  ui.discardChangesSuccess()
-}
-
 const onIndexListItems = () => {
   api.indexLists()
     .then(ui.onIndexSuccess)
@@ -62,8 +58,9 @@ const onCreateListItem = (event) => {
 const addHandlers = () => {
   $('body').on('click', '#delete-list-item', onDeleteListItem)
   $('.content').on('submit', '.update-list-item', onUpdateListItem)
-  $('.content').on('click', '.discard-changes', onDiscardChanges)
-  $('body').on('click', '.close', onDiscardChanges)
+  $('.content').on('click', '.discard-changes', ui.resetForms)
+  $('body').on('click', '.modal-launch', ui.resetForms)
+  $('body').on('click', '.close', ui.resetForms)
   $('.content').on('submit', '.create-list-item', onCreateListItem)
 }
 
