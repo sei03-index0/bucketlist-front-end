@@ -30,20 +30,34 @@ const onUpdateListItem = (event) => {
 
 const onIndexListItems = (event) => {
   event.preventDefault()
-  api.indexListItems()
+  api.indexLists()
     .then(ui.onIndexSuccess)
     .catch(ui.onIndexFailure)
+}
+
+const onCreateListItem = (event) => {
+  console.log('got here')
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  console.log(formData)
+  api.createList(formData)
+    .then(ui.onCreateSuccess)
+    .then(() => onIndexListItems(event))
+    .catch(ui.onCreateFailure)
 }
 
 const addHandlers = () => {
   $('.content').on('click', '.delete-list-item', onDeleteListItem)
   $('.content').on('submit', '.update-list-item', onUpdateListItem)
+  $('.content').on('submit', '.create-list-item', onCreateListItem)
 }
 
 module.exports = {
   onAddListItem,
   onDeleteListItem,
   onUpdateListItem,
+  onCreateListItem,
   onIndexListItems,
   addHandlers
 }
