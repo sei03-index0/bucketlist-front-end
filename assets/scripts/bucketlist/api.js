@@ -33,11 +33,14 @@ const createList = (data) => {
   })
 }
 
-const destroyList = (listId) => {
-  console.log('the errror is here')
+const deleteList = (listId) => {
+  console.log('the error is here')
   return $.ajax({
     url: config.apiUrl + '/list-items/' + listId,
-    method: 'DELETE'
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -60,6 +63,6 @@ const updateList = (data) => {
 module.exports = {
   indexLists,
   createList,
-  destroyList,
+  deleteList,
   updateList
 }

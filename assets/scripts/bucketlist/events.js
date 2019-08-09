@@ -15,9 +15,12 @@ const onAddListItem = event => {
 const onDeleteListItem = (event) => {
   event.preventDefault()
   const listItemId = $(event.target).closest('section').data('id')
-  api.deleteListItem(listItemId)
-    .then(() => onIndexListItems(event))
-    .catch(ui.onDestroyFailure)
+  api.deleteList(listItemId)
+    .then(() => {
+      ui.onDeleteSuccess()
+      onIndexListItems()
+    })
+    .catch(ui.onDeleteFailure())
 }
 
 const onUpdateListItem = (event) => {
@@ -53,7 +56,7 @@ const onCreateListItem = (event) => {
 }
 
 const addHandlers = () => {
-  $('.content').on('click', '.delete-list-item', onDeleteListItem)
+  $('body').on('click', '#delete-list-item', onDeleteListItem)
   $('.content').on('submit', '.update-list-item', onUpdateListItem)
   $('.content').on('submit', '.create-list-item', onCreateListItem)
 }

@@ -43,7 +43,7 @@ const onCreateFailure = function (error) {
   console.error('Did not run. Error is :', error)
 }
 
-const onDestroySuccess = function () {
+const onDeleteSuccess = function () {
   $('#message').show()
   $('#message').text('List Successfully deleted')
   $('.content').empty()
@@ -51,7 +51,7 @@ const onDestroySuccess = function () {
   console.log('list successfully deleted')
 }
 
-const onDestroyFailure = function (error) {
+const onDeleteFailure = function (error) {
   $('#message').show()
   $('#message').text('Error Deleting List, Try Again')
   hideMessaging()
@@ -82,8 +82,8 @@ module.exports = {
   onCreateFailure,
   onIndexSuccess,
   onIndexFailure,
-  onDestroySuccess,
-  onDestroyFailure,
-  updateListSuccess,
-  updateListFailure
+  onDeleteSuccess,
+  onDeleteFailure,
+  onUpdateSuccess,
+  onUpdateFailure
 }
