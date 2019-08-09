@@ -1,6 +1,7 @@
 'use strict'
 
 const indexListTemplate = require('./../templates/list-item.handlebars')
+const store = require('./../store')
 
 const hideMessaging = function () {
   setTimeout(function () {
@@ -57,7 +58,10 @@ const onDestroyFailure = function (error) {
   console.error('onDestroyFailure ran. Error is :', error)
 }
 
-const onUpdateSuccess = function () {
+const updateListSuccess = function () {
+  $(`#${store.currModalId}`).modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Updated List Successfully')
@@ -65,7 +69,7 @@ const onUpdateSuccess = function () {
   console.log('list successfully updated')
 }
 
-const onUpdateFailure = function (error) {
+const updateListFailure = function (error) {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Updating List, Try Again')
@@ -80,6 +84,6 @@ module.exports = {
   onIndexFailure,
   onDestroySuccess,
   onDestroyFailure,
-  onUpdateSuccess,
-  onUpdateFailure
+  updateListSuccess,
+  updateListFailure
 }
