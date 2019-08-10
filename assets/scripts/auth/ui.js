@@ -28,6 +28,9 @@ const onSignUpFailure = (error) => {
 const onSignInSuccess = (data) => {
   // $('.sign-up').hide()
   $('.landing').hide()
+  // $('body').addClass('.loggedIn')
+  // $('html').addClass('.loggedIn')
+  // $('.loggedIn').show()
   $('#sign-out').show()
   $('.dropdown-content').hide()
   $('#message').show()
@@ -37,6 +40,7 @@ const onSignInSuccess = (data) => {
   $('#message').text('Successfully Signed In!')
   hideMessaging()
   console.log('Sign in success')
+  $('.body').css('background-image', 'none')
 }
 
 const onSignInFailure = (error) => {
@@ -78,6 +82,7 @@ const onSignOutSuccess = (data) => {
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
   console.log('Sign out success')
+  $('.body').css('background-image', 'url(./images/bucket.jpg)')
 }
 
 const onSignOutFailure = (error) => {

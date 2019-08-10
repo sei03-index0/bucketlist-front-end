@@ -62,6 +62,12 @@ const addHandlers = () => {
   $('body').on('click', '.modal-launch', ui.resetForms)
   $('body').on('click', '.close', ui.resetForms)
   $('.content').on('submit', '.create-list-item', onCreateListItem)
+//  $('.body').on('click', '.sign-in', function () {
+// //    $(this).closest('.body').toggleClass('translucent')
+//   })
+//   $('.body').on('click', '.sign-out', function () {
+//     $(this).closest('.body').toggleClass('not')
+//   })
 }
 
 module.exports = {
