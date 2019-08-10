@@ -19,6 +19,10 @@ body {
   background-image: url("../../images/bucket.jpg");
 }
 
+.completed {
+  text-decoration: line-through;
+}
+
 // .loggedIn {
 //   opacity: 0.6;
 //   height: 100%;

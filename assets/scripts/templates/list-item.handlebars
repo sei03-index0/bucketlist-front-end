@@ -35,11 +35,11 @@
 {{#each listItems as |listItem|}}
   <div class="d-flex flex-row">
     <div class="align-self-center">
-      <input data-id="{{listItem._id}}" type="checkbox" class="complete-item">
+      <input data-id="{{listItem._id}}" type="checkbox" class="complete-item" {{completedStatus listItem}}>
     </div>
     <section data-id="{{listItem._id}}" class="item flex-fill">
-    <h5>{{listItem.title}}</h5>
-    <p>{{listItem.description}}</p>
+    <h5 class="{{completedClass listItem}}">{{listItem.title}}</h5>
+    <p class="{{completedClass listItem}}">{{listItem.description}}</p>
 
 
 <div class="visibleButtons">

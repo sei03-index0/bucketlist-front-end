@@ -77,6 +77,10 @@ const updateListFailure = function (error) {
   console.error('onUpdateFailure ran. Error is :', error)
 }
 
+const toggleCompleteFailure = () => {
+  console.log('Toggle complete failed')
+}
+
 const resetForms = () => {
   $('form').trigger('reset')
 }
@@ -90,5 +94,6 @@ module.exports = {
   onDeleteFailure,
   updateListSuccess,
   updateListFailure,
+  toggleCompleteFailure,
   resetForms
 }

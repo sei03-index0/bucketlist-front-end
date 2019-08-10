@@ -60,9 +60,25 @@ const updateList = (data) => {
   })
 }
 
+const toggleComplete = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/list-items/' + store.listId,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      listItem: {
+        completed: data
+      }
+    }
+  })
+}
+
 module.exports = {
   indexLists,
   createList,
   deleteList,
-  updateList
+  updateList,
+  toggleComplete
 }

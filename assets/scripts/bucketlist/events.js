@@ -55,12 +55,12 @@ const onCreateListItem = (event) => {
     .catch(ui.onCreateFailure)
 }
 
-const onCompleteItem = event => {
-  event.preventDefault()
+const onToggleComplete = event => {
   store.listId = $(event.target).data('id')
-  console.log(event.target)
-  console.log(event.target.checked)
-  $(event.target).prop('checked', true)
+  const isItChecked = $(event.target).is(':checked')
+  api.toggleComplete(isItChecked)
+    .then(onIndexListItems)
+    .catch(ui.toggleCompleteFailure)
 }
 
 const addHandlers = () => {
@@ -70,7 +70,7 @@ const addHandlers = () => {
   $('body').on('click', '.modal-launch', ui.resetForms)
   $('body').on('click', '.close', ui.resetForms)
   $('.content').on('submit', '.create-list-item', onCreateListItem)
-  $('.content').on('click', '.complete-item', onCompleteItem)
+  $('.content').on('click', '.complete-item', onToggleComplete)
 //  $('.body').on('click', '.sign-in', function () {
 // //    $(this).closest('.body').toggleClass('translucent')
 //   })
