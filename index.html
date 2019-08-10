@@ -10,11 +10,12 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-
-    <body>
-      <h1>Bucket List</h1>
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:700&display=swap" rel="stylesheet">
+    <body class="body">
+      <div class="bg"></div>
+      <h1>BUCKET LIST</h1>
         <nav>
+          <div class="landing-page">
           <div class="landing">
                   <form id="sign-in" class="p-2">
                     <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
@@ -30,7 +31,7 @@
               </form>
 
           </div>
-
+        </div>
 
         <!-- Button trigger modal -->
         <button id="hide-password" type="button" class="btn btn-primary hide-ps modal-launch" data-toggle="modal" data-target="#change-password-modal">
@@ -70,7 +71,6 @@
 <div class="content" id="content"> </div>
 
 </main>
-
 
     </body>
 </html>
