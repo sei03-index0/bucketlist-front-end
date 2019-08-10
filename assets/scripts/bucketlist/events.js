@@ -55,6 +55,14 @@ const onCreateListItem = (event) => {
     .catch(ui.onCreateFailure)
 }
 
+const onCompleteItem = event => {
+  event.preventDefault()
+  store.listId = $(event.target).data('id')
+  console.log(event.target)
+  console.log(event.target.checked)
+  $(event.target).prop('checked', true)
+}
+
 const addHandlers = () => {
   $('body').on('click', '#delete-list-item', onDeleteListItem)
   $('.content').on('submit', '.update-list-item', onUpdateListItem)
@@ -62,6 +70,7 @@ const addHandlers = () => {
   $('body').on('click', '.modal-launch', ui.resetForms)
   $('body').on('click', '.close', ui.resetForms)
   $('.content').on('submit', '.create-list-item', onCreateListItem)
+  $('.content').on('click', '.complete-item', onCompleteItem)
 //  $('.body').on('click', '.sign-in', function () {
 // //    $(this).closest('.body').toggleClass('translucent')
 //   })
