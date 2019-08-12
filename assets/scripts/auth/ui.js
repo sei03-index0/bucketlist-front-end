@@ -38,7 +38,7 @@ const onSignInSuccess = (data) => {
   store.user = data.user
   $('#message').text('Successfully Signed In!')
   hideMessaging()
-  $('.body').css('background-image', 'none')
+  $('body').css('background-image', 'none')
 }
 
 const onSignInFailure = () => {
@@ -59,13 +59,9 @@ const onChangePasswordSuccess = (data) => {
 }
 
 const onChangePasswordFailure = () => {
-  $('#changePasswordFeedback').text('Error Changing Passwords, Try Again')
-  setTimeout(function () {
-    $('#changePasswordFeedback').text('')
-  }, 3000)
   $('#message').show()
   $('form').trigger('reset')
-  // $('#message').text('Error Changing Passwords, Try Again')
+  $('#message').text('Error Changing Passwords, Try Again')
   hideMessaging()
 }
 
@@ -81,7 +77,7 @@ const onSignOutSuccess = (data) => {
   $('.list-header').html('')
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
-  $('.body').css('background-image', 'url(./images/bucket.jpg)')
+  $('body').css('background-image', 'url(./../public/bucket.jpg)')
 }
 
 const onSignOutFailure = () => {
