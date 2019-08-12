@@ -12,10 +12,9 @@
 
 
 <div class="visibleButtons">
+
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#list-item-{{listItem._id}}">
-      Update
-    </button>
+    <i class="fas fa-pencil-alt modal-launch" data-toggle="modal" data-target="#list-item-{{listItem._id}}"></i>
 
     <!-- Modal -->
     <div class="modal fade" id="list-item-{{listItem._id}}" tabindex="-1" role="dialog" aria-labelledby="editListItem" aria-hidden="true">
@@ -41,9 +40,8 @@
       </div>
     </div>
 
-    <button id="delete-list-item" type="button" class="btn btn-primary" data-id="{{listItem._id}}">
-      Delete
-    </button>
+    <i id="delete-list-item" class="fas fa-trash-alt"></i>
+
 </div>
 
   </section>
