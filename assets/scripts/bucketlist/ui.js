@@ -6,13 +6,17 @@ const store = require('./../store')
 
 const filterCompleteSuccess = function (data) {
   const completed = data.listItems.filter(currentListItem => currentListItem.completed)
-  const indexCompleted = indexListTemplate({ listItems: completed })
+  const indexCompleted = indexListTemplate({
+    listItems: completed
+  })
   $('.content').html(indexCompleted)
 }
 
 const filterIncompleteSuccess = function (data) {
   const incompleted = data.listItems.filter(currentListItem => !currentListItem.completed)
-  const indexIncompleted = indexListTemplate({ listItems: incompleted })
+  const indexIncompleted = indexListTemplate({
+    listItems: incompleted
+  })
   $('.content').html(indexIncompleted)
 }
 
@@ -30,12 +34,14 @@ const onIndexSuccess = function (data) {
   if (data.listItems.length === 0) {
     $('.content').html('Your list is empty, please click \'Add new item\' to add to your list.')
   } else {
-    const indexListContent = indexListTemplate({ listItems: data.listItems })
+    const indexListContent = indexListTemplate({
+      listItems: data.listItems
+    })
     $('.content').html(indexListContent)
   }
 }
 
-const onIndexFailure = function (error) {
+const onIndexFailure = function () {
   $('#message').show()
   $('#message').text('Error getting lists')
 }
@@ -50,7 +56,7 @@ const onCreateSuccess = function (data) {
   hideMessaging()
 }
 
-const onCreateFailure = function (error) {
+const onCreateFailure = function () {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Creating List, Try Again')
@@ -64,7 +70,7 @@ const onDeleteSuccess = function () {
   hideMessaging()
 }
 
-const onDeleteFailure = function (error) {
+const onDeleteFailure = function () {
   $('#message').show()
   $('#message').text('Error Deleting List, Try Again')
   hideMessaging()
@@ -80,15 +86,14 @@ const updateListSuccess = function () {
   hideMessaging()
 }
 
-const updateListFailure = function (error) {
+const updateListFailure = function () {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Updating List, Try Again')
   hideMessaging()
 }
 
-const toggleCompleteFailure = () => {
-}
+const toggleCompleteFailure = () => {}
 
 const resetForms = () => {
   $('form').trigger('reset')

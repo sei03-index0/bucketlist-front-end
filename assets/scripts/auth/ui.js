@@ -16,7 +16,7 @@ const onSignUpSuccess = (data) => {
   hideMessaging()
 }
 
-const onSignUpFailure = (error) => {
+const onSignUpFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Signing Up, Try Again')
@@ -41,7 +41,7 @@ const onSignInSuccess = (data) => {
   $('.body').css('background-image', 'none')
 }
 
-const onSignInFailure = (error) => {
+const onSignInFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Sign In NOT Successful')
@@ -58,7 +58,7 @@ const onChangePasswordSuccess = (data) => {
   hideMessaging()
 }
 
-const onChangePasswordFailure = (error) => {
+const onChangePasswordFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
   $('#message').text('Error Changing Passwords, Try Again')
@@ -80,7 +80,7 @@ const onSignOutSuccess = (data) => {
   $('.body').css('background-image', 'url(./images/bucket.jpg)')
 }
 
-const onSignOutFailure = (error) => {
+const onSignOutFailure = () => {
   $('#message').show()
   $('#message').text('Error Signing Out')
   hideMessaging()
