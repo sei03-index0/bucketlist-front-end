@@ -59,9 +59,13 @@ const onChangePasswordSuccess = (data) => {
 }
 
 const onChangePasswordFailure = () => {
+  $('#changePasswordFeedback').text('Error Changing Passwords, Try Again')
+  setTimeout(function () {
+    $('#changePasswordFeedback').text('')
+  }, 3000)
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Changing Passwords, Try Again')
+  // $('#message').text('Error Changing Passwords, Try Again')
   hideMessaging()
 }
 
