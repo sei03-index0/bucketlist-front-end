@@ -1,0 +1,60 @@
+<!-- Button trigger modal -->
+<div class="top">
+
+
+                  <div class="dropdown">
+                  <div id="filters" class="button-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle is-checked dropbtn view-listItems" id="filterDropdown" data-filter="*" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter </button>
+                    <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                      <button id="filterAll"> All </button>
+                      <button id="filterComplete">Completed</button>
+                      <button  id="filterIncomplete">Incompleted</button>
+                    </div>
+                  </div>
+                </div>
+
+<div class="container">
+{{#each listItems as |listItem|}}
+  <div class="d-flex flex-row">
+    <div class="align-self-center">
+      <input data-id="{{listItem._id}}" type="checkbox" class="complete-item" {{completedStatus listItem}}>
+    </div>
+    <section data-id="{{listItem._id}}" class="item flex-fill">
+    <h5 class="{{completedClass listItem}}">{{listItem.title}}</h5>
+    <p class="{{completedClass listItem}}">{{listItem.description}}</p>
+
+
+<div class="visibleButtons">
+    <!-- Button trigger modal -->
+    <i class="fas fa-pencil-alt modal-launch" data-toggle="modal" data-target="#list-item-{{listItem._id}}"></i>
+
+    <!-- Modal -->
+    <div class="modal fade" id="list-item-{{listItem._id}}" tabindex="-1" role="dialog" aria-labelledby="editListItem" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editListItem">Edit list item</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form data-id="{{listItem._id}}" class="update-list-item">
+              <textarea class="form-control" rows="1" type="text" name="listItem[title]" placeholder="Title">{{listItem.title}}</textarea>
+              <textarea class="form-control" type="text" name="listItem[description]" placeholder="Description">{{listItem.description}}</textarea>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary discard-changes" data-dismiss="modal">Discard Changes</button>
+                <button type="submit" class="btn btn-info update-list-item">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <i id="delete-list-item" class="fas fa-trash-alt" data-id="{{listItem._id}}"></i>
+  </div>
+</section>
+</div>
+{{/each}}
+</div>

@@ -10,8 +10,12 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
     "isotope-layout": "^3.0.6",
+<<<<<<< HEAD
     "jquery": "^3.4.1",
     "jquery-bridget": "^2.0.1",
+=======
+    "jquery": "^3.3.1",
+>>>>>>> development
     "popper.js": "^1.14.3"
   },
   "devDependencies": {

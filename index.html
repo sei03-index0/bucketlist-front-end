@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Bucket List</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -10,8 +12,74 @@
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://kit.fontawesome.com/0963168b53.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:700&display=swap" rel="stylesheet">
     </head>
-    <body>
-      <h1>Browser Template</h1>
+    <body class="body">
+      <div class="bg"></div>
+      <h1><div id="message0" class="hidden">BUCKET LIST</div></h1>
+
+      <h2><div id="message1">BUCKET LIST</div></h2>
+
+        <nav>
+          <div class="landing-page">
+          <div class="landing">
+            <form id="sign-in" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <button class="button btn btn-primary">Sign in</button>
+            </form>
+            <form id="sign-up" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <button class="button btn btn-primary">Sign up</button>
+            </form>
+          </div>
+        </div>
+
+        <div id="auth-menu" class="dropdown hidden">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <!-- Button trigger modal -->
+            <button id="hide-password" type="button" class="dropdown-item modal-launch" data-toggle="modal" data-target="#change-password-modal">
+              Change Password
+            </button>
+            <button class="btn-primary dropdown-item" id="sign-out">Sign Out</button>
+          </div>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="changePassword" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="changePassword">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password" class="hide">
+                  <h2>Change Password</h2>
+                  <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
+                  <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
+                  <button class="btn btn-primary mb-1">Change Password</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </nav>
+
+    <div id="message"></div>
+<main>
+  <div class="list-header" id="list-header"></div>
+  <div class="content" id="content"></div>
+</main>
+
     </body>
 </html>
