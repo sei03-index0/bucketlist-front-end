@@ -69,7 +69,7 @@ const addHandlers = () => {
   $('.content').on('click', '.discard-changes', ui.resetForms)
   $('body').on('click', '.modal-launch', ui.resetForms)
   $('body').on('click', '.close', ui.resetForms)
-  $('.content').on('submit', '.create-list-item', onCreateListItem)
+  $('.list-header').on('submit', '.create-list-item', onCreateListItem)
   $('.content').on('click', '.complete-item', onToggleComplete)
 //  $('.body').on('click', '.sign-in', function () {
 // //    $(this).closest('.body').toggleClass('translucent')
