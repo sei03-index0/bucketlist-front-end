@@ -33,6 +33,8 @@ const onSignInSuccess = (data) => {
   // $('html').addClass('.loggedIn')
   // $('.loggedIn').show()
   $('#auth-menu').show()
+  $('#message1').hide()
+  $('#message0').show()
   $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
@@ -75,6 +77,8 @@ const onSignOutSuccess = (data) => {
   $('.landing').show()
   $('#auth-menu').hide()
   $('#message').show()
+  $('#message0').hide()
+  $('#message1').show()
   $('.content').html('')
   $('.list-header').html('')
   $('#message').text('Signed Out Successfully!')

@@ -1,5 +1,8 @@
 @import '~bootstrap/scss/bootstrap';
 
+.main {
+  background-color: white;
+}
 
 .content:after {
   content: '';
@@ -21,7 +24,7 @@
 }
 
 .content {
-  background-color: #FFF2F0;
+  background-color: white;
   // display: flex;
   // flex-flow: row wrap;
 //  display: flexwrap;
@@ -61,7 +64,7 @@
   vertical-align: middle;
   // display: none;
 //  position: absolute;
-  background-color: #FFF2F0;
+  background-color: #FFD5CF;
   min-width: 160px;
   padding: 12px 16px;
   z-index: 1;
@@ -78,10 +81,18 @@
   display: block;
 }
 
-
 h1 {
   color: white;
-  margin: 30% 6%;
+  // margin: 28% 6% 1% 6%;
+  text-align: center;
+  font-size: 80px;
+  // font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h2 {
+  color: white;
+  margin: 23% 6% 1% 6%;
   text-align: center;
   font-size: 80px;
   // font-family: 'Roboto', sans-serif;
@@ -89,7 +100,7 @@ h1 {
 }
 
 body {
-  background-color: #FFF2F0;
+  background-color: #FCD7D4;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -110,7 +121,8 @@ body {
   justify-content: center;
   margin: 15% 30%;
   align-items: center;
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
 }
 
 .hidden {
@@ -121,6 +133,7 @@ body {
   justify-content: space-around;
   position: fixed;
   top: 0;
+  background-color: white;
 }
 
 .visibleButtons {
@@ -134,6 +147,7 @@ body {
  flex-wrap: wrap;
  display: flex;
  margin-top: 4%;
+ background-color: white;
 }
 
 .item {
