@@ -14,7 +14,6 @@ const onSignUpSuccess = (data) => {
   $('form').trigger('reset')
   $('#message').text('Successfully Signed Up!')
   hideMessaging()
-  console.log('Sign up success')
 }
 
 const onSignUpFailure = (error) => {
@@ -22,7 +21,6 @@ const onSignUpFailure = (error) => {
   $('form').trigger('reset')
   $('#message').text('Error Signing Up, Try Again')
   hideMessaging()
-  console.log('Sign up failed', error)
 }
 
 const onSignInSuccess = (data) => {
@@ -40,7 +38,6 @@ const onSignInSuccess = (data) => {
   store.user = data.user
   $('#message').text('Successfully Signed In!')
   hideMessaging()
-  console.log('Sign in success')
   $('.body').css('background-image', 'none')
 }
 
@@ -49,7 +46,6 @@ const onSignInFailure = (error) => {
   $('form').trigger('reset')
   $('#message').text('Sign In NOT Successful')
   hideMessaging()
-  console.error('Sign in failed', error)
 }
 
 const onChangePasswordSuccess = (data) => {
@@ -60,7 +56,6 @@ const onChangePasswordSuccess = (data) => {
   $('form').trigger('reset')
   $('#message').text('Changed Password Successfully')
   hideMessaging()
-  console.log('Change password success')
 }
 
 const onChangePasswordFailure = (error) => {
@@ -68,7 +63,6 @@ const onChangePasswordFailure = (error) => {
   $('form').trigger('reset')
   $('#message').text('Error Changing Passwords, Try Again')
   hideMessaging()
-  console.error('Change password failed', error)
 }
 
 const onSignOutSuccess = (data) => {
@@ -83,7 +77,6 @@ const onSignOutSuccess = (data) => {
   $('.list-header').html('')
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
-  console.log('Sign out success')
   $('.body').css('background-image', 'url(./images/bucket.jpg)')
 }
 
@@ -91,7 +84,6 @@ const onSignOutFailure = (error) => {
   $('#message').show()
   $('#message').text('Error Signing Out')
   hideMessaging()
-  console.error('Sign out failed', error)
 }
 
 module.exports = {
