@@ -4,38 +4,17 @@ const indexListTemplate = require('./../templates/list-item.handlebars')
 const listHeaderTemplate = require('./../templates/list-header.handlebars')
 const store = require('./../store')
 
-// const showListItemsTemplate = require('../templates/list-item.handlebars')
-const jQueryBridget = require('jquery-bridget')
-const Isotope = require('isotope-layout')
-jQueryBridget('isotope', Isotope, $)
+const filterCompleteSuccess = function (data) {
+  const completed = data.listItems.filter(currentListItem => currentListItem.completed)
+  const indexCompleted = indexListTemplate({ listItems: completed })
+  $('.content').html(indexCompleted)
+}
 
-$('#filters').on('click', 'button', function () {
-  const filterValue = $(this).attr('data-filter')
-  // use filterFn if matches value
-  $('.content').isotope({ filter: filterValue })
-})
-
-$('.button-group').each(function (i, buttonGroup) {
-  const $buttonGroup = $(buttonGroup)
-  $buttonGroup.on('click', 'button', function () {
-    $buttonGroup.find('.is-checked').removeClass('is-checked')
-    $(this).addClass('is-checked')
-  })
-})
-
-$('#filter').on('click', 'button', function () {
-  const filterValue = $(this).attr('data-filter')
-  // use filterFn if matches value
-  $('.content').isotope({ filter: filterValue })
-})
-
-$('.button-group').each(function (i, buttonGroup) {
-  const $buttonGroup = $(buttonGroup)
-  $buttonGroup.on('click', 'button', function () {
-    $buttonGroup.find('.is-checked').removeClass('is-checked')
-    $(this).addClass('is-checked')
-  })
-})
+const filterIncompleteSuccess = function (data) {
+  const incompleted = data.listItems.filter(currentListItem => !currentListItem.completed)
+  const indexIncompleted = indexListTemplate({ listItems: incompleted })
+  $('.content').html(indexIncompleted)
+}
 
 const hideMessaging = function () {
   setTimeout(function () {
@@ -134,5 +113,7 @@ module.exports = {
   updateListSuccess,
   updateListFailure,
   toggleCompleteFailure,
-  resetForms
+  resetForms,
+  filterCompleteSuccess,
+  filterIncompleteSuccess
 }

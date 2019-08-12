@@ -2,7 +2,6 @@
 
 const store = require('./../store')
 
-
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')
@@ -74,13 +73,7 @@ const onSignOutSuccess = (data) => {
   $('.sign-up').show()
   $('.sign-in').show()
   $('.landing').show()
-<<<<<<< HEAD
   $('#auth-menu').hide()
-=======
-  $('.view-listItems').hide()
-  // $('.dropdown-content').show()
-  $('#sign-out').hide()
->>>>>>> Started filtering
   $('#message').show()
   $('.content').html('')
   $('#message').text('Signed Out Successfully!')

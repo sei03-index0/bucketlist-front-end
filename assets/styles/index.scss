@@ -1,6 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 
 
+.content:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
 .button-group {
   margin-bottom: 20px;
   background-color: inherit;
@@ -16,9 +22,9 @@
 
 .content {
   background-color: #FFF2F0;
-  display: flex;
-  flex-flow: row wrap;
-  display: flexwrap;
+  // display: flex;
+  // flex-flow: row wrap;
+//  display: flexwrap;
   margin: 0 auto;
   color: black;
   justify-content: space-evenly;
@@ -42,7 +48,7 @@
 // styles filter buttons
 .dropbtn {
   align-text: centered;
-  background-color: blue;
+  background-color: grey;
   color: black;
   padding: 16px;
   font-size: 20px;
@@ -83,6 +89,7 @@ h1 {
 }
 
 body {
+  background-color: #FFF2F0;
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -94,17 +101,6 @@ body {
 .completed {
   text-decoration: line-through;
 }
-
-// .loggedIn {
-//   opacity: 0.6;
-//   height: 100%;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-image: none;
-//   background-color: white;
-//   background: white;
-// }
 
 .landing {
   height: 100%;
@@ -123,7 +119,7 @@ body {
 
 .nav {
   justify-content: space-around;
-//  position: fixed;
+  position: fixed;
   top: 0;
 }
 
@@ -154,7 +150,7 @@ body {
 }
 
 .top {
- justify-content: center;
+ // justify-content: center;
  text-align: center;
  margin: auto;
 }

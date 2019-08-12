@@ -1,8 +1,51 @@
+<<<<<<< HEAD
 </div>
+=======
+<!-- Button trigger modal -->
+<div class="top">
+<button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#create">
+  Add new item
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-body">
+          <form class="create-list-item">
+            <input class="form-control" type="text" name="listItem[title]" placeholder="title"/>
+            <textarea class="form-control" type="text" name="listItem[description]" placeholder="description">{{listItem.description}}</textarea>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="submit" data-id="{{listItem._id}}" class="btn btn-info create-list-item">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+                  <div class="dropdown">
+                  <div id="filters" class="button-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle is-checked dropbtn view-listItems" id="filterDropdown" data-filter="*" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Filter </button>
+                    <div class="dropdown-menu" aria-labelledby="filterDropdown">
+                      <button id="filterAll"> All </button>
+                      <button id="filterComplete">Completed</button>
+                      <button  id="filterIncomplete">Incompleted</button>
+                    </div>
+                  </div>
+                </div>
+>>>>>>> Filtering function, styling
 
 <div class="container">
 {{#each listItems as |listItem|}}
-<section data-id="{{listItem.id}}" class="list-item {{listItem.completed}}">
+<section data-id="{{listItem.id}}" class="list-item {{completedClass listItem}}">
   <div class="d-flex flex-row">
     <div class="align-self-center">
       <input data-id="{{listItem._id}}" type="checkbox" class="complete-item" {{completedStatus listItem}}>
