@@ -2,6 +2,7 @@
 
 <div class="container">
 {{#each listItems as |listItem|}}
+<section data-id="{{listItem.id}}" class="list-item {{listItem.completed}}">
   <div class="d-flex flex-row">
     <div class="align-self-center">
       <input data-id="{{listItem._id}}" type="checkbox" class="complete-item" {{completedStatus listItem}}>
@@ -46,5 +47,6 @@
 
   </section>
 </div>
+</section>
 {{/each}}
 </div>
