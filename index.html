@@ -17,26 +17,34 @@
         <nav>
           <div class="landing-page">
           <div class="landing">
-                  <form id="sign-in" class="p-2">
-                    <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
-                    <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
-                    <button class="button btn btn-primary">Sign in</button>
-                  </form>
+            <form id="sign-in" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <button class="button btn btn-primary">Sign in</button>
+            </form>
 
-              <form id="sign-up" class="p-2">
-                <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
-                <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
-                <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
-                <button class="button btn btn-primary">Sign up</button>
-              </form>
-
+            <form id="sign-up" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <button class="button btn btn-primary">Sign up</button>
+            </form>
           </div>
         </div>
 
-        <!-- Button trigger modal -->
-        <button id="hide-password" type="button" class="btn btn-primary hide-ps modal-launch" data-toggle="modal" data-target="#change-password-modal">
-          Change Password
-        </button>
+        <div id="auth-menu" class="dropdown hidden">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <!-- Button trigger modal -->
+            <button id="hide-password" type="button" class="dropdown-item modal-launch" data-toggle="modal" data-target="#change-password-modal">
+              Change Password
+            </button>
+            <button class="btn-primary dropdown-item" id="sign-out">Sign Out</button>
+          </div>
+        </div>
+
 
         <!-- Modal -->
         <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="changePassword" aria-hidden="true">
@@ -50,20 +58,15 @@
               </div>
               <div class="modal-body">
                 <form id="change-password" class="hide">
-                    <h2>Change Password</h2>
-                    <input type="password" name="passwords[old]" placeholder="Old Password">
-                    <input type="password" name="passwords[new]" placeholder="New Password">
-                    <button class="btn-primary hide hide-ps">Change Password</button>
+                  <h2>Change Password</h2>
+                  <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
+                  <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
+                  <button class="btn btn-primary mb-1">Change Password</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-
-        <button class="btn-primary hidden" id="sign-out">Sign Out</button>
-
-
-
     </nav>
 
     <div id="message"></div>
