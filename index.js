@@ -5,6 +5,8 @@
 
 import 'bootstrap'
 
+import 'isotope-layout'
+
 // allows usage of new JS features
 require('babel-polyfill')
 

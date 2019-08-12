@@ -4,6 +4,18 @@ const indexListTemplate = require('./../templates/list-item.handlebars')
 const listHeaderTemplate = require('./../templates/list-header.handlebars')
 const store = require('./../store')
 
+const filterCompleteSuccess = function (data) {
+  const completed = data.listItems.filter(currentListItem => currentListItem.completed)
+  const indexCompleted = indexListTemplate({ listItems: completed })
+  $('.content').html(indexCompleted)
+}
+
+const filterIncompleteSuccess = function (data) {
+  const incompleted = data.listItems.filter(currentListItem => !currentListItem.completed)
+  const indexIncompleted = indexListTemplate({ listItems: incompleted })
+  $('.content').html(indexIncompleted)
+}
+
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')
@@ -101,5 +113,7 @@ module.exports = {
   updateListSuccess,
   updateListFailure,
   toggleCompleteFailure,
-  resetForms
+  resetForms,
+  filterCompleteSuccess,
+  filterIncompleteSuccess
 }

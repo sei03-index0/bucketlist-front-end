@@ -43,6 +43,18 @@ const onIndexListItems = () => {
     .catch(ui.onIndexFailure)
 }
 
+const onFilterComplete = () => {
+  api.indexLists()
+    .then(ui.filterCompleteSuccess)
+    .catch(ui.onIndexFailure)
+}
+
+const onFilterIncomplete = () => {
+  api.indexLists()
+    .then(ui.filterIncompleteSuccess)
+    .catch(ui.onIndexFailure)
+}
+
 const onCreateListItem = (event) => {
   console.log('got here')
   event.preventDefault()
@@ -71,6 +83,9 @@ const addHandlers = () => {
   $('body').on('click', '.close', ui.resetForms)
   $('.list-header').on('submit', '.create-list-item', onCreateListItem)
   $('.content').on('click', '.complete-item', onToggleComplete)
+  $('.content').on('click', '#filterAll', onIndexListItems)
+  $('.content').on('click', '#filterComplete', onFilterComplete)
+  $('.content').on('click', '#filterIncomplete', onFilterIncomplete)
 //  $('.body').on('click', '.sign-in', function () {
 // //    $(this).closest('.body').toggleClass('translucent')
 //   })
@@ -85,5 +100,6 @@ module.exports = {
   onUpdateListItem,
   onCreateListItem,
   onIndexListItems,
-  addHandlers
+  addHandlers,
+  onFilterComplete
 }

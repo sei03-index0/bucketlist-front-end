@@ -28,6 +28,7 @@ const onSignUpFailure = (error) => {
 const onSignInSuccess = (data) => {
   // $('.sign-up').hide()
   $('.landing').hide()
+  $('.view-listItems').show()
   // $('body').addClass('.loggedIn')
   // $('html').addClass('.loggedIn')
   // $('.loggedIn').show()
