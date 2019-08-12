@@ -57,10 +57,13 @@ const onCreateSuccess = function (data) {
 }
 
 const onCreateFailure = function () {
-  $('#message').show()
+  // $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Creating List, Try Again')
-  hideMessaging()
+  $('#addItemFeedback').text('Error Creating List, Try Again')
+  setTimeout(function () {
+    $('#addItemFeedback').text('')
+  }, 3000)
+  // hideMessaging()
 }
 
 const onDeleteSuccess = function () {
