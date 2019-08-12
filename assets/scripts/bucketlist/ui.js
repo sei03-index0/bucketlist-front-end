@@ -1,6 +1,7 @@
 'use strict'
 
 const indexListTemplate = require('./../templates/list-item.handlebars')
+const listHeaderTemplate = require('./../templates/list-header.handlebars')
 const store = require('./../store')
 
 const hideMessaging = function () {
@@ -13,8 +14,13 @@ const hideMessaging = function () {
 // CRUD Success and Failure Messages
 const onIndexSuccess = function (data) {
   $('#message').show()
-  const indexListContent = indexListTemplate({ listItems: data.listItems })
-  $('.content').html(indexListContent)
+  $('.list-header').html(listHeaderTemplate)
+  if (data.listItems.length === 0) {
+    $('.content').html('Your list is empty, please click \'Add new item\' to add to your list.')
+  } else {
+    const indexListContent = indexListTemplate({ listItems: data.listItems })
+    $('.content').html(indexListContent)
+  }
   console.log('onIndexSuccess ran. Data is :', data.lists)
 }
 
