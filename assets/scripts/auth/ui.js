@@ -76,6 +76,7 @@ const onSignOutSuccess = (data) => {
   $('#auth-menu').hide()
   $('#message').show()
   $('.content').html('')
+  $('.list-header').html('')
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
   console.log('Sign out success')
