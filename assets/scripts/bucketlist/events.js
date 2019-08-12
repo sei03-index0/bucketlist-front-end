@@ -56,11 +56,9 @@ const onFilterIncomplete = () => {
 }
 
 const onCreateListItem = (event) => {
-  console.log('got here')
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
-  console.log(formData)
   api.createList(formData)
     .then(ui.onCreateSuccess)
     .then(() => onIndexListItems(event))

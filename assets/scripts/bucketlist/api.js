@@ -4,7 +4,6 @@ const config = require('../config.js')
 const store = require('../store.js')
 
 const indexLists = () => {
-  console.log('api index list started')
   return $.ajax({
     url: config.apiUrl + '/list-items',
     method: 'GET',
@@ -15,8 +14,6 @@ const indexLists = () => {
 }
 
 const createList = (data) => {
-  console.log('in API')
-  console.log(data)
   return $.ajax({
     url: config.apiUrl + '/list-items',
     method: 'POST',
@@ -34,7 +31,6 @@ const createList = (data) => {
 }
 
 const deleteList = (listId) => {
-  console.log('the error is here')
   return $.ajax({
     url: config.apiUrl + '/list-items/' + listId,
     method: 'DELETE',
