@@ -81,9 +81,9 @@ const addHandlers = () => {
   $('body').on('click', '.close', ui.resetForms)
   $('.list-header').on('submit', '.create-list-item', onCreateListItem)
   $('.content').on('click', '.complete-item', onToggleComplete)
-  $('.content').on('click', '#filterAll', onIndexListItems)
-  $('.content').on('click', '#filterComplete', onFilterComplete)
-  $('.content').on('click', '#filterIncomplete', onFilterIncomplete)
+  $('main').on('click', '#filterAll', onIndexListItems)
+  $('main').on('click', '#filterComplete', onFilterComplete)
+  $('main').on('click', '#filterIncomplete', onFilterIncomplete)
 //  $('.body').on('click', '.sign-in', function () {
 // //    $(this).closest('.body').toggleClass('translucent')
 //   })

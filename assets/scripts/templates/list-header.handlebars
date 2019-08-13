@@ -1,5 +1,12 @@
 <div class="d-flex pt-3 pb-3">
   <div class="list-title">Your List</div>
+
+  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <button type="button" name="options" id="filterAll" class="btn btn-primary active" autocomplete="off">All</button>
+      <button type="button" name="options" id="filterComplete" class="btn btn-primary" autocomplete="off">Complete</button>
+      <button type="button" name="options" id="filterIncomplete" class="btn btn-primary" autocomplete="off">Incomplete</button>
+  </div>
+
   <!-- Button trigger modal -->
   <div class="top">
   <button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#create">
@@ -11,7 +18,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Add new goal!</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -24,8 +31,6 @@
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 <button type="submit" data-id="{{listItem._id}}" class="btn btn-info create-list-item">Create</button>
             </form>
-
-            <div class="modal-footer"> <p id="addItemFeedback"> </p></div>
           </div>
         </div>
       </div>
