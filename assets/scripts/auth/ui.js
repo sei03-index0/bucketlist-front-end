@@ -5,21 +5,21 @@ const store = require('./../store')
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')
-    $('#message').hide()
+    // $('#message').hide()
   }, 3000)
 }
 // Auth Success and Failure Messages
 const onSignUpSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Successfully Signed Up!')
+  $('#message').text('You\'ve successfully sign up')
   hideMessaging()
 }
 
 const onSignUpFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Signing Up, Try Again')
+  $('#message').text('Error signing up, please try again')
   hideMessaging()
 }
 
@@ -36,7 +36,7 @@ const onSignInSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
-  $('#message').text('Successfully Signed In!')
+  $('#message').text('You\'ve signed in successfully')
   hideMessaging()
   $('body').css('background-image', 'none')
 }
@@ -44,7 +44,7 @@ const onSignInSuccess = (data) => {
 const onSignInFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Sign In NOT Successful')
+  $('#message').text('Incorrect username or password')
   hideMessaging()
 }
 
@@ -54,15 +54,17 @@ const onChangePasswordSuccess = (data) => {
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
   $('form').trigger('reset')
-  $('#message').text('Changed Password Successfully')
+  $('#message').text('Your password has been changed')
   hideMessaging()
 }
 
 const onChangePasswordFailure = () => {
-  $('#message').show()
+  // $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Changing Passwords, Try Again')
-  hideMessaging()
+  $('#changePasswordFeedback').text('Error changing passwords, please try again')
+  setTimeout(function () {
+    $('#changePasswordFeedback').html('')
+  }, 3000)
 }
 
 const onSignOutSuccess = (data) => {
