@@ -25,9 +25,9 @@ Start by creating an account to receive full access to all of Bucketlist's featu
 
 Link to the client repo and deployed website
 
+* [Bucketlist-Client Repo](https://github.com/sei03-index0/bucketlist-front-end)
 * [Bucketlist-Server Repo](https://github.com/sei03-index0/bucketlist-back-end)
 * [Bucketlist Deployed Website](https://sei03-index0.github.io/bucketlist-front-end/)
-
 
 ### MVP User Stories
 
@@ -62,13 +62,12 @@ Now that we have achieved MVP we used the remainder of the time to style the web
 | Verb   | URI Pattern  | Result |
 |:-------|:-------------|:------------------|
 | GET    | `/list-items`     | read all list items    |
-| GET    | `/list-items/:id` | read single list item  |
 | POST   | `/list-items`     | create list item       |
 | PATCH  | `/list-items/:id` | update list item       |
 | DELETE | `/list-items/:id` | destroy list item      |
 
 
-## ERD Images
+## Wireframe Images
 
 ![Wireframe Image](https://imgur.com/5ao1cQ2.jpg)
 ![Wireframe Image 2](https://i.imgur.com/qALKZgt.jpg)
