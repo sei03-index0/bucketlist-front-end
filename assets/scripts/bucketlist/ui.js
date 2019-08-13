@@ -37,8 +37,8 @@ const filterIncompleteSuccess = function (data) {
 const hideMessaging = function () {
   setTimeout(function () {
     $('#message').html('')
-    $('#message').hide()
-  }, 4000)
+    // ('#message').hide()
+  }, 3000)
 }
 
 // CRUD Success and Failure Messages
@@ -73,8 +73,10 @@ const onCreateSuccess = function (data) {
 const onCreateFailure = function () {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Creating List, Try Again')
-  hideMessaging()
+  $('#create-list-feedback').text('Error Creating List, Try Again')
+  setTimeout(function () {
+    $('#create-list-feedback').html('')
+  }, 3000)
 }
 
 const onDeleteSuccess = function () {
