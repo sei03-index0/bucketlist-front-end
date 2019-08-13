@@ -6,18 +6,32 @@ const store = require('./../store')
 
 const filterCompleteSuccess = function (data) {
   const completed = data.listItems.filter(currentListItem => currentListItem.completed)
-  const indexCompleted = indexListTemplate({
-    listItems: completed
-  })
-  $('.content').html(indexCompleted)
+  if (completed.length === 0) {
+    $('.content').html('No filtered results.')
+  } else {
+    const indexCompleted = indexListTemplate({
+      listItems: completed
+    })
+    $('.content').html(indexCompleted)
+  }
+  $('#filterComplete').addClass('active')
+  $('#filterIncomplete').removeClass('active')
+  $('#filterAll').removeClass('active')
 }
 
 const filterIncompleteSuccess = function (data) {
-  const incompleted = data.listItems.filter(currentListItem => !currentListItem.completed)
-  const indexIncompleted = indexListTemplate({
-    listItems: incompleted
-  })
-  $('.content').html(indexIncompleted)
+  const incomplete = data.listItems.filter(currentListItem => !currentListItem.completed)
+  if (incomplete.length === 0) {
+    $('.content').html('No filtered results.')
+  } else {
+    const indexIncomplete = indexListTemplate({
+      listItems: incomplete
+    })
+    $('.content').html(indexIncomplete)
+  }
+  $('#filterComplete').removeClass('active')
+  $('#filterIncomplete').addClass('active')
+  $('#filterAll').removeClass('active')
 }
 
 const hideMessaging = function () {
@@ -57,13 +71,10 @@ const onCreateSuccess = function (data) {
 }
 
 const onCreateFailure = function () {
-  // $('#message').show()
+  $('#message').show()
   $('form').trigger('reset')
-  $('#addItemFeedback').text('Error Creating List, Try Again')
-  setTimeout(function () {
-    $('#addItemFeedback').text('')
-  }, 3000)
-  // hideMessaging()
+  $('#message').text('Error Creating List, Try Again')
+  hideMessaging()
 }
 
 const onDeleteSuccess = function () {
