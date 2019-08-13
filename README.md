@@ -74,7 +74,9 @@ Now that we have achieved MVP we used the remainder of the time to style the web
 ![Wireframe Image 3](https://i.imgur.com/tYZ2h0T.jpg)
 
 ## Built With
-
+* HTML
+* CSS
+* JavaScript
 * [ExpressJS](https://expressjs.com/en/api.html) - The web framework used
 * [MongoDB](https://docs.mongodb.com/manual/) - Non-Relational Database Program
 * [Mongoose](https://mongoosejs.com/docs/) - Object Data Modeling(ODM) library for Node.js and MongoDB
