@@ -81,7 +81,7 @@ const onCreateFailure = function () {
 
 const onDeleteSuccess = function () {
   $('#message').show()
-  $('#message').text('List Successfully deleted')
+  $('#message').text('List item successfully deleted')
   $('.content').empty()
   hideMessaging()
 }
