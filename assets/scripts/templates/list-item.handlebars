@@ -7,16 +7,21 @@
     <div class="align-self-center">
       <input data-id="{{listItem._id}}" type="checkbox" class="complete-item" {{completedStatus listItem}}>
     </div>
-    <section data-id="{{listItem._id}}" class="item flex-fill">
-    <h5 class="{{completedClass listItem}}">{{listItem.title}}</h5>
-    <p class="{{completedClass listItem}}">{{listItem.description}}</p>
+    <section data-id="{{listItem._id}}" class="card mb-2 mr-5 ml-5 item flex-fill">
+      <div class="card-body">
+        <h5 class="{{completedClass listItem}}">{{listItem.title}}</h5>
+        <p class="{{completedClass listItem}}">{{listItem.description}}</p>
 
 
-<div class="visibleButtons">
-    <!-- Button trigger modal -->
-    <i class="fas fa-pencil-alt modal-launch" data-toggle="modal" data-target="#list-item-{{listItem._id}}"></i>
+        <div class="visibleButtons">
+          <!-- Button trigger modal -->
+          <i class="fas fa-pencil-alt modal-launch p-1" data-toggle="modal" data-target="#list-item-{{listItem._id}}"></i>
 
-    <!-- Modal -->
+          <i id="delete-list-item" class="fas fa-trash-alt p-1" data-id="{{listItem._id}}"></i>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
     <div class="modal fade" id="list-item-{{listItem._id}}" tabindex="-1" role="dialog" aria-labelledby="editListItem" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -40,8 +45,6 @@
       </div>
     </div>
 
-    <i id="delete-list-item" class="fas fa-trash-alt" data-id="{{listItem._id}}"></i>
-  </div>
 </section>
 </div>
 {{/each}}

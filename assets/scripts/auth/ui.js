@@ -79,7 +79,7 @@ const onSignOutSuccess = (data) => {
   $('.list-header').html('')
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
-  $('body').css('background-image', 'url(./../public/bucket.jpg)')
+  $('body').css('background-image', 'url(./../../public/bucket.jpg)')
 }
 
 const onSignOutFailure = () => {
