@@ -1,0 +1,49 @@
+<div class="top">
+
+<div class="container">
+{{#each memories as |memory|}}
+  <div class="d-flex flex-row">
+    <section data-id="{{memory._id}}" class="card mb-2 mr-5 ml-5 item flex-fill">
+      <div class="card-body">
+        <h5>{{memory.title}}</h5>
+        <p>{{memory.description}}</p>
+        <p>{{memory.date}}</p>
+
+
+        <div class="visibleButtons">
+          <!-- Button trigger modal -->
+          <i class="fas fa-pencil-alt modal-launch p-1" data-toggle="modal" data-target="#memory-{{memory._id}}"></i>
+
+          <i id="delete-memory" class="fas fa-trash-alt p-1" data-id="{{memory._id}}"></i>
+        </div>
+    </div>
+
+    <!-- Update Modal -->
+    <div class="modal fade" id="memory-{{memory._id}}" tabindex="-1" role="dialog" aria-labelledby="editMemory" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editMemory">Edit Memory</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form data-id="{{memory._id}}" class="update-memory">
+              <textarea class="form-control" rows="1" type="text" name="memory[title]" placeholder="Title">{{memory.title}}</textarea>
+              <textarea class="form-control" type="text" name="memory[description]" placeholder="Description">{{memory.description}}</textarea>
+              <textarea class="form-control" type="text" name="memory[date]" placeholder="Date">{{memory.date}}</textarea>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary discard-changes" data-dismiss="modal">Discard Changes</button>
+                <button type="submit" class="btn btn-info update-memory">Save Changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+</div>
+{{/each}}
+</div>

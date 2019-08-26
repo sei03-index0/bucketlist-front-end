@@ -84,12 +84,7 @@ const addHandlers = () => {
   $('main').on('click', '#filterAll', onIndexListItems)
   $('main').on('click', '#filterComplete', onFilterComplete)
   $('main').on('click', '#filterIncomplete', onFilterIncomplete)
-//  $('.body').on('click', '.sign-in', function () {
-// //    $(this).closest('.body').toggleClass('translucent')
-//   })
-//   $('.body').on('click', '.sign-out', function () {
-//     $(this).closest('.body').toggleClass('not')
-//   })
+  $('body').on('click', '#go-to-homepage', onIndexListItems)
 }
 
 module.exports = {
