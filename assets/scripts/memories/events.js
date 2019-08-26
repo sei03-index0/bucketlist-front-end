@@ -15,7 +15,7 @@ const onCreateMemory = (event) => {
   const formData = getFormFields(form)
   api.createMemory(formData)
     .then(ui.onCreateSuccess)
-    .then(() => onIndexMemories(event))
+    .then(() => onIndexMemories())
     .catch(ui.onCreateFailure)
 }
 
@@ -44,15 +44,6 @@ const onDeleteMemory = (event) => {
     .catch(ui.onDeleteFailure)
 }
 
-const onAddMemory = event => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.addMemory(formData)
-    .then(ui.onCreateSuccess)
-    .catch(ui.onCreateFailure)
-}
-
 const addHandlers = () => {
   $('body').on('click', '#get-memories', onIndexMemories)
   $('body').on('submit', '.create-memory', onCreateMemory)
@@ -61,6 +52,5 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  onAddMemory,
   addHandlers
 }

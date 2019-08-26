@@ -13,7 +13,6 @@ const hideMessaging = function () {
 
 // CRUD Success and Failure Messages
 const onIndexSuccess = function (data) {
-  console.log(data)
   $('#message').show()
   $('.list-header').html(memoriesHeaderTemplate)
   if (data.memories.length === 0) {
@@ -28,7 +27,7 @@ const onIndexSuccess = function (data) {
 
 const onIndexFailure = function () {
   $('#message').show()
-  $('#message').text('Error getting memories')
+  $('#message').text('You were unable to get your memories, Please try again')
 }
 
 const onCreateSuccess = function (data) {
@@ -37,14 +36,14 @@ const onCreateSuccess = function (data) {
   $('.modal-backdrop').remove()
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Memory Successfully Created!')
+  $('#message').text('Memory was successfully created!')
   hideMessaging()
 }
 
 const onCreateFailure = function () {
   $('#message').show()
   $('form').trigger('reset')
-  $('#create-list-feedback').text('Error Creating Memory, Try Again')
+  $('#create-list-feedback').text('You were unable to create this memory, Please try again')
   setTimeout(function () {
     $('#create-list-feedback').html('')
   }, 3000)
@@ -56,32 +55,28 @@ const updateSuccess = function () {
   $('.modal-backdrop').remove()
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Updated Memory Successfully')
+  $('#message').text('Memory was successfully updated')
   hideMessaging()
 }
 
 const updateFailure = function () {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error Updating Memory, Try Again')
+  $('#message').text('You were unable to delete this memory, Please try again')
   hideMessaging()
 }
 
 const onDeleteSuccess = function () {
   $('#message').show()
-  $('#message').text('Memory successfully deleted')
+  $('#message').text('Memory was successfully deleted')
   $('.content').empty()
   hideMessaging()
 }
 
 const onDeleteFailure = function () {
   $('#message').show()
-  $('#message').text('Error Deleting Memory, Try Again')
+  $('#message').text('You were unable to delete this memory, Please try again')
   hideMessaging()
-}
-
-const resetForms = () => {
-  $('form').trigger('reset')
 }
 
 module.exports = {
@@ -92,6 +87,5 @@ module.exports = {
   onDeleteSuccess,
   onDeleteFailure,
   updateSuccess,
-  updateFailure,
-  resetForms
+  updateFailure
 }

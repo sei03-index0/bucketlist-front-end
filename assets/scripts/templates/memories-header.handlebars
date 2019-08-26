@@ -3,13 +3,13 @@
 
   <!-- Button trigger modal -->
   <div class="top">
-  <button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#create">
+  <button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#createMemory">
     Add New Memory
   </button>
   <button class="btn btn-primary " id="go-to-homepage">View List Items</button>
 
   <!-- Modal -->
-  <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="createMemory" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -28,9 +28,6 @@
                 <button type="submit" data-id="{{memory._id}}" class="btn btn-info create-memory">Create</button>
             </form>
           </div>
-        </div>
-        <div class="modal-footer">
-          <p id="create-memory-feedback"></p>
         </div>
       </div>
     </div>
