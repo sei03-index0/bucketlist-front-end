@@ -1,0 +1,38 @@
+<div class="d-flex pt-3 pb-3">
+  <div class="list-title">Your Memories</div>
+
+  <!-- Button trigger modal -->
+  <div class="top">
+  <button type="button" class="btn btn-primary modal-launch" data-toggle="modal" data-target="#create">
+    Add New Memory
+  </button>
+  <button class="btn btn-primary " id="go-to-homepage">View List Items</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add new Memory </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-body">
+            <form class="create-memory">
+              <input class="form-control" type="text" name="memory[title]" placeholder="title"/>
+              <textarea class="form-control" type="text" name="memory[description]" placeholder="description">{{memory.description}}</textarea>
+              <input class="form-control" type="text" name="memory[date]" placeholder="date"/>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" data-id="{{memory._id}}" class="btn btn-info create-memory">Create</button>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p id="create-memory-feedback"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
