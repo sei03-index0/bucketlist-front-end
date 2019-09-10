@@ -47,6 +47,7 @@ const onSignInSuccess = (data) => {
   $('#sign-in-modal').modal('hide')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
+  $('.unauth-buttons').hide()
 }
 
 const onSignInFailure = () => {
@@ -76,8 +77,8 @@ const onChangePasswordFailure = () => {
 }
 
 const onSignOutSuccess = (data) => {
-  $('.sign-up').show()
-  $('.sign-in').show()
+  // $('.sign-up').show()
+  // $('.sign-in').show()
   $('.landing').show()
   $('#auth-menu').hide()
   $('#message').show()
@@ -88,6 +89,7 @@ const onSignOutSuccess = (data) => {
   $('#message').text('Signed Out Successfully!')
   hideMessaging()
   $('body').css('background-image', 'url("https://i.imgur.com/4x6nG2z.jpg")')
+  $('.unauth-buttons').show()
 }
 
 const onSignOutFailure = () => {

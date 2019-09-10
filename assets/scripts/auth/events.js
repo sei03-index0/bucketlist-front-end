@@ -44,6 +44,7 @@ const onSignIn = event => {
         .catch(listUi.onIndexFailure)
     })
     .catch(ui.onSignInFailure)
+  $('#hide-password').show()
 }
 
 const onSignOut = event => {
