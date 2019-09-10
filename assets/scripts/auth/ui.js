@@ -12,14 +12,19 @@ const hideMessaging = function () {
 const onSignUpSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
+  $('')
   $('#message').text('You\'ve successfully sign up')
+  $('#sign-up-modal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
+
   hideMessaging()
 }
 
 const onSignUpFailure = () => {
   $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Error signing up, please try again')
+  $('#signUpFeedback').text('Error signing up, please try again')
   hideMessaging()
 }
 
@@ -36,9 +41,12 @@ const onSignInSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
-  $('#message').text('You\'ve signed in successfully')
+  $('#signInFeedback').text('You\'ve signed in successfully')
   hideMessaging()
   $('body').css('background-image', 'none')
+  $('#sign-in-modal').modal('hide')
+  $('body').removeClass('modal-open')
+  $('.modal-backdrop').remove()
 }
 
 const onSignInFailure = () => {
