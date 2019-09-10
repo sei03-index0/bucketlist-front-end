@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Bucket List</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="https://kit.fontawesome.com/0963168b53.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:700,display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+      <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1"><i class="fas fa-globe-americas mr-2"></i>BL</span>
+
+        <div class="d-flex justify-content-end">
+           <button id="guest-signIn" class="btn btn-primary mr-2 unauth-buttons">Login to demo account</button>
+           <button class="signIn btn btn-primary mr-2 modal-launch unauth-buttons" id="hide-sign-in" type="button" data-toggle="modal" data-target="#sign-in-modal">Sign in</button>
+           <button id="signUp" type="button" class="btn btn-primary modal-launch unauth-buttons" data-toggle="modal" data-target="#sign-up-modal">Sign up</button>
+           <div id="auth-menu" class="dropdown hidden">
+             <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</button>
+               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                <!-- Button trigger modal -->
+                <button id="hide-password" type="button" class="dropdown-item modal-launch" data-toggle="modal" data-target="#change-password-modal">
+                    Change Password
+               </button>
+              <button class="btn-primary dropdown-item" id="sign-out">Sign Out</button>
+           </div>
+          </div>
+        </div>
+      </nav>
+
+      <h1 id="message0" class="hidden">BUCKET LIST</h1>
+
+      <h2 id="message1">BUCKET LIST</h2>
+      <div id="message"></div>
+        <div>
+          <div class="landing">
+            <!-- <form id="sign-in" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <button class="button btn btn-primary">Sign in</button>
+            </form> -->
+
+          <!--   <form id="sign-up" class="p-2">
+              <input class="form-control mb-1" type="email" name="credentials[email]" placeholder="Email">
+              <input class="form-control mb-1" type="password" name="credentials[password]" placeholder="Password">
+              <input class="form-control mb-1" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <button class="button btn btn-primary">Sign up</button>
+            </form> -->
+          </div>
+
+      <div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="signIn" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="signIn">Sign in</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                    <form id="sign-in">
+                      <input class="form-control" type="email" name="credentials[email]" placeholder="Email">
+                      <input class="form-control" type="password" name="credentials[password]" placeholder="Password">
+                          <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
+              </div>
+                 <div class="modal-footer"> <p id="signInFeedback"> </p></div>
+            </div>
+          </div>
+      </div>
+
+
+
+       <div class="modal fade" id="sign-up-modal" tabindex="-1" role="dialog" aria-labelledby="signUp" aria-hidden="true">
+               <div class="modal-dialog" role="document">
+                 <div class="modal-content">
+                   <div class="modal-header">
+                     <h5 class="modal-title" id="signUp">Sign up</h5>
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <div class="modal-body">
+                         <form id="sign-up">
+                           <input class="form-control" type="email" name="credentials[email]" placeholder="Email">
+                           <input class="form-control" type="password" name="credentials[password]" placeholder="Password">
+                           <input class="form-control" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                           <button type="submit" class="btn btn-primary">Sign up</button>
+                         </form>
+                   </div>
+                   <div class="modal-footer"> <p id="signUpFeedback"> </p></div>
+                 </div>
+               </div>
+             </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="change-password-modal" tabindex="-1" role="dialog" aria-labelledby="changePassword" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="changePassword">Change Password</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form id="change-password">
+                    <input class="form-control mb-1" type="password" name="passwords[old]" placeholder="Old Password">
+                    <input class="form-control mb-1" type="password" name="passwords[new]" placeholder="New Password">
+                    <button class="btn btn-primary">Change Password</button>
+                </form>
+              </div>
+            <div class="modal-footer"> <p id="changePasswordFeedback"> </p></div>
+          </div>
+        </div>
+      </div>
+
+          <button class="btn-primary hidden" id="sign-out">Sign Out</button>
+    </div>
+
+<main>
+  <div class="list-header" id="list-header"></div>
+  <div class="content" id="content"></div>
+</main>
+
+
+    </body>
+</html>
