@@ -4,6 +4,25 @@ const ui = require('./ui')
 const listApi = require('./../bucketlist/api')
 const listUi = require('./../bucketlist/ui')
 
+const onGuest = event => {
+  event.preventDefault()
+  const guestInfo = {
+    'credentials': {
+      'email': 'demo@demo',
+      'password': 'demo'
+    }
+  }
+  api.signIn(guestInfo)
+    .then(ui.onSignInSuccess)
+    .then(() => {
+      listApi.indexLists()
+        .then(listUi.onIndexSuccess)
+        .catch(listUi.onIndexFailure)
+    })
+    .catch(ui.onSignInFailure)
+  $('#hide-password').hide()
+}
+
 const onSignUp = event => {
   const form = event.target
   event.preventDefault()
@@ -50,6 +69,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('click', onSignOut)
   $('#change-password').on('submit', onChangePassword)
+  $('#guest-signIn').on('click', onGuest)
 }
 module.exports = {
   addHandlers
