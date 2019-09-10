@@ -13,7 +13,7 @@ const onSignUpSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
   $('')
-  $('#message').text('You\'ve successfully sign up')
+  $('#message').text('You\'ve successfully signed up, please sign in above')
   $('#sign-up-modal').modal('hide')
   $('body').removeClass('modal-open')
   $('.modal-backdrop').remove()
@@ -22,10 +22,12 @@ const onSignUpSuccess = (data) => {
 }
 
 const onSignUpFailure = () => {
-  $('#message').show()
+  // $('#message').show()
   $('form').trigger('reset')
   $('#signUpFeedback').text('Error signing up, please try again')
-  hideMessaging()
+  setTimeout(function () {
+    $('#signUpFeedback').html('')
+  }, 3000)
 }
 
 const onSignInSuccess = (data) => {
@@ -41,7 +43,7 @@ const onSignInSuccess = (data) => {
   $('#message').show()
   $('form').trigger('reset')
   store.user = data.user
-  $('#signInFeedback').text('You\'ve signed in successfully')
+  $('#message').text('You\'ve signed in successfully')
   hideMessaging()
   $('body').css('background-image', 'none')
   $('#sign-in-modal').modal('hide')
@@ -51,10 +53,12 @@ const onSignInSuccess = (data) => {
 }
 
 const onSignInFailure = () => {
-  $('#message').show()
+  // $('#message').show()
   $('form').trigger('reset')
-  $('#message').text('Incorrect username or password')
-  hideMessaging()
+  $('#signInFeedback').text('Incorrect username or password')
+  setTimeout(function () {
+    $('#signInFeedback').html('')
+  }, 3000)
 }
 
 const onChangePasswordSuccess = (data) => {
